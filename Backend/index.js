@@ -1,0 +1,24 @@
+const express  = require("express");
+const cookieParser = require('cookie-parser');
+const connectDB = require('./config/mongodb')
+const cors = require('cors');
+require('dotenv').config();
+const app = express();
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors({
+  origin: 'http://localhost:5500', 
+  credentials: true  
+}));
+connectDB();
+const regRoute = require('./routes/auth/register');
+const loginRoute = require('./routes/auth/login');
+const verifyToken = require("./routes/middleware/middleware");
+
+app.use("/api/register",regRoute);
+app.use("/api/login" , loginRoute);
+
+
+app.listen(process.env.PORT,()=>{
+    console.log(`running on localhost:${process.env.PORT}`);
+})

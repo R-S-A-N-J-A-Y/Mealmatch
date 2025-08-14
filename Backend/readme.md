@@ -1,4 +1,4 @@
-# 🍽️ MealMatch Auth API Documentation
+#  MealMatch Auth API Documentation
 
 ## To run
 
@@ -8,7 +8,7 @@ npm run dev
 
 ---
 
-## 📌 Base URL
+##  Base URL
 
 ```
 http://localhost:3000
@@ -16,7 +16,7 @@ http://localhost:3000
 
 ---
 
-## 📥 Register API
+##  Register API
 
 **Endpoint:**
 
@@ -69,7 +69,7 @@ async function registerUser() {
 
 ---
 
-## 🔐 Login API
+##  Login API
 
 **Endpoint:**
 
@@ -109,7 +109,7 @@ async function loginUser() {
 
 ---
 
-## ⚙️ Required `.env` Variables
+##  Required `.env` Variables
 
 ```env
 PORT=3000
@@ -118,11 +118,11 @@ JWT_SECRET=your-jwt-secret-key
 JWT_EXPIRES_IN=1d
 ```
 
-> 💡 Replace `MONGO_URL` with your actual MongoDB connection string.
+>  Replace `MONGO_URL` with your actual MongoDB connection string.
 
 ---
 
-## ✅ Notes
+##  Notes
 
 - Use `credentials: "include"` to support cookie-based authentication.
 - After successful login, a cookie named `token` will be set.
@@ -135,3 +135,20 @@ JWT_EXPIRES_IN=1d
 ```
 GET /api/register/user
 ```
+---
+
+## TO get the nearby cook details
+
+```
+POST /api/nearByCook
+```
+# sample request body
+
+```json
+{
+  lat : 12.63, 
+  lon : 12.6543,
+  radius : 5000 // in meter
+}
+```
+---

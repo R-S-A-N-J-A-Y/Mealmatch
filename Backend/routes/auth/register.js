@@ -4,6 +4,8 @@ const route = express.Router();
 const User = require('../../models/UserModel');
 const verifyToken = require("../middleware/middleware");
 
+
+// remove in production
 route.get("/user",async(req,res)=>{
   try {
      const data = await User.find();
@@ -69,7 +71,7 @@ route.post('/', async (req, res) => {
     });
 
   } catch (error) {
-    console.error("Error creating user:", error);
+    console.error("Error creating user:", error); // remove in production
     res.status(500).json({ message: "Server error" });
   }
 });
